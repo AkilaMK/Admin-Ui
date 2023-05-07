@@ -1,0 +1,14 @@
+.tel-input .MuiInputBase-root {
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.23);
+  }
+
+  .tel-input .Mui-focused {
+    border-color: rgba(0, 0, 0, 0.87);
+  }
+
+  /* Remove the thick bottom border */
+  .tel-input .MuiInput-underline:before,
+  .tel-input .MuiInput-underline:after {
+    border-bottom: none;
+  }
