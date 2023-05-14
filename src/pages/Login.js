@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../reducers/authSlice";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom"; // useNavigate instead of useHistory
+import { useSelector } from "react-redux";
+import { getUser } from "../reducers/authSlice";
 import {
 	Container,
 	Typography,
@@ -19,6 +22,15 @@ const Login = () => {
 	} = useForm();
 
 	const dispatch = useDispatch();
+
+	const navigate = useNavigate(); // useNavigate instead of useHistory
+	const user = useSelector(getUser); // Get the user from Redux store
+
+	useEffect(() => {
+		if (user) {
+			navigate("/profile");
+		}
+	}, [user, navigate]);
 
 	const onSubmit = (data) => {
 		dispatch(loginUser(data.email, data.password));
