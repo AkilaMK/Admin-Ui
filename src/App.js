@@ -47,4 +47,6 @@ function App({ mode, toggleMode }) {
 	);
 }
 
+//test comment
+
 export default App;
